@@ -18,9 +18,43 @@ public class InputController : MonoBehaviour
 
     public Vector3 GetMoveInput()
     {
-        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
-        move = Vector3.ClampMagnitude(move, 1);
-        return move;
+        if (CanProcessInput())
+        {
+            Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
+            move = Vector3.ClampMagnitude(move, 1);
+            return move;
+        }
+        return Vector3.zero;
+    }
+
+    //取得 Mouse X 的 Axis
+    public float GetMouseXAxis()
+    {
+        if (CanProcessInput())
+        {
+            return Input.GetAxis("Mouse X");
+        }
+        return 0;
+    }
+
+    //取得 Mouse Y 的 Axis
+    public float GetMouseYAxis()
+    {
+        if (CanProcessInput())
+        {
+            return Input.GetAxis("Mouse Y");
+        }
+        return 0;
+    }
+
+    //取得 Mouse ScrollWheel 的 Axis
+    public float GetMouseScrollWheelAxis()
+    {
+        if (CanProcessInput())
+        {
+            return Input.GetAxis("Mouse ScrollWheel");
+        }
+        return 0;
     }
 
     private void checkCursorState()
@@ -36,5 +70,10 @@ public class InputController : MonoBehaviour
                 Cursor.lockState = CursorLockMode.None;
             }
         }
+    }
+
+    public bool CanProcessInput()
+    {
+        return Cursor.lockState == CursorLockMode.Locked;
     }
 }

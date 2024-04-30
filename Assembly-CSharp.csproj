@@ -39,6 +39,7 @@
      <Compile Include="Assets\GameManagerSingleton.cs" />
      <Compile Include="Assets\InputController.cs" />
      <Compile Include="Assets\PlayerController.cs" />
+     <Compile Include="Assets\ThirdPersonCanera.cs" />
     <Reference Include="UnityEngine">
         <HintPath>D:\unitydownload\2021.3.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
