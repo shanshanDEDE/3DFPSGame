@@ -27,6 +27,27 @@ public class InputController : MonoBehaviour
         return Vector3.zero;
     }
 
+
+    //是否按下Spring加速
+    public bool GetSprintInput()
+    {
+        if (CanProcessInput())
+        {
+            return Input.GetKey(KeyCode.LeftShift);
+        }
+        return false;
+    }
+
+    //是否按下Space跳躍
+    public bool GetJumpInputDown()
+    {
+        if (CanProcessInput())
+        {
+            return Input.GetKeyDown(KeyCode.Space);
+        }
+        return false;
+    }
+
     //取得 Mouse X 的 Axis
     public float GetMouseXAxis()
     {
