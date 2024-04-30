@@ -37,6 +37,9 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Test.cs" />
+     <Compile Include="Assets\GameManagerSingleton.cs" />
+     <Compile Include="Assets\InputController.cs" />
+     <Compile Include="Assets\PlayerController.cs" />
     <Reference Include="UnityEngine">
         <HintPath>D:\unitydownload\2021.3.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
