@@ -4,18 +4,23 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    InputController inputController;
-    // Start is called before the first frame update
+    InputController m_Input;
+
+    void Awake()
+    {
+        m_Input = GameManagerSingleton.Instance.InputController;
+    }
+
     void Start()
     {
-        inputController = GameManagerSingleton.Instance.InputController;
 
     }
 
-    // Update is called once per frame
     void Update()
     {
-        print(inputController.horizontal + "horizontal");
-        print(inputController.vertical + "vertical");
+        if (m_Input.GetMoveInput() != Vector3.zero)
+        {
+            print(m_Input.GetMoveInput());
+        }
     }
 }
