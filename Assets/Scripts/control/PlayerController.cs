@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float crouchedSpeedModifier = 0.5f;
     [Tooltip("旋轉速度")]
     [SerializeField] float rotateSpeed = 5f;
+    [Tooltip("加速度百分比")]
+    [SerializeField] float addSpeedRatio = 0.1f;
 
     [Space(20)]
     [Header("跳躍參數")]
@@ -32,10 +34,15 @@ public class PlayerController : MonoBehaviour
     Vector3 targetMovement;
     Vector3 jumpDirection;
 
+    float lastFramSpeed;
+
+    Animator animator;
+
     void Awake()
     {
         input = GameManagerSingleton.Instance.InputController;
         controller = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -55,16 +62,31 @@ public class PlayerController : MonoBehaviour
         //避免對角線超過1
         targetMovement = Vector3.ClampMagnitude(targetMovement, 1);
 
-        //是否按下加速
-        if (input.GetSprintInput())
-        {
-            targetMovement *= sprintSpeedModifier;
-        }
+        float nextFrameSpeed = 0;
 
-        if (targetMovement != Vector3.zero)
+        //是否按下加速
+        if (targetMovement == Vector3.zero)
         {
+            nextFrameSpeed = 0;
+        }
+        else if (input.GetSprintInput())
+        {
+
+            nextFrameSpeed = 1f;
+
+            targetMovement *= sprintSpeedModifier;
             SmoothRotation(targetMovement);
         }
+        else
+        {
+            nextFrameSpeed = 0.5f;
+
+            SmoothRotation(targetMovement);
+        }
+
+        lastFramSpeed = Mathf.Lerp(lastFramSpeed, nextFrameSpeed, addSpeedRatio);
+        animator.SetFloat("WalkSpeed", lastFramSpeed);
+
         controller.Move(targetMovement * moveSpeed * Time.deltaTime);
     }
 
