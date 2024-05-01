@@ -84,9 +84,11 @@ public class PlayerController : MonoBehaviour
             SmoothRotation(targetMovement);
         }
 
-        lastFramSpeed = Mathf.Lerp(lastFramSpeed, nextFrameSpeed, addSpeedRatio);
+        if (lastFramSpeed != nextFrameSpeed)
+        {
+            lastFramSpeed = Mathf.Lerp(lastFramSpeed, nextFrameSpeed, addSpeedRatio);
+        }
         animator.SetFloat("WalkSpeed", lastFramSpeed);
-
         controller.Move(targetMovement * moveSpeed * Time.deltaTime);
     }
 
@@ -94,6 +96,7 @@ public class PlayerController : MonoBehaviour
     {
         if (input.GetJumpInputDown() && IsGround())
         {
+            animator.SetTrigger("IsJump");
             jumpDirection = Vector3.zero;
             jumpDirection += Vector3.up * jumpForce;
         }
@@ -105,6 +108,7 @@ public class PlayerController : MonoBehaviour
 
     private bool IsGround()
     {
+        //return Physics.Raycast(transform.position, Vector3.down, distanceToGround);
         return Physics.Raycast(transform.position, -transform.up * distanceToGround);
     }
 
