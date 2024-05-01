@@ -47,6 +47,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        Debug.DrawRay(transform.position, Vector3.down, Color.red);
+
+
         //移動行為
         MoveBehaviour();
         //跳躍行為
@@ -108,8 +111,7 @@ public class PlayerController : MonoBehaviour
 
     private bool IsGround()
     {
-        //return Physics.Raycast(transform.position, Vector3.down, distanceToGround);
-        return Physics.Raycast(transform.position, -transform.up * distanceToGround);
+        return Physics.Raycast(transform.position, Vector3.down, distanceToGround);
     }
 
 
