@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1929083610
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1929083611}
+  m_Layer: 0
+  m_Name: EquipWeapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1929083611
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929083610}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5109029058728967610}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5109029058729451616
 GameObject:
   m_ObjectHideFlags: 0
@@ -862,6 +893,7 @@ Transform:
   m_Children:
   - {fileID: 5109029058728967612}
   - {fileID: 5109029058728967604}
+  - {fileID: 1929083611}
   m_Father: {fileID: 5109029058728967608}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1578,6 +1610,8 @@ GameObject:
   - component: {fileID: 5109029058719961608}
   - component: {fileID: 5109029058837419379}
   - component: {fileID: 5109029058837419376}
+  - component: {fileID: 2033701917}
+  - component: {fileID: 2033701921}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1615,7 +1649,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 07d7099c2bcaecf4b9979bc3332682ad, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -1661,6 +1695,35 @@ MonoBehaviour:
   jumpForce: 15
   gravityDownForce: 50
   distanceToGround: 0.1
+--- !u!114 &2033701917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5109029058729451976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4918796d9e8334f4091656d411d411e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+--- !u!114 &2033701921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5109029058729451976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f1b445fc9d8f78408336020223479c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingWeapons:
+  - {fileID: 1785249788639603986, guid: eb66b231de48a0c429eef271d055c585, type: 3}
+  equipWeaponParent: {fileID: 8818776209507484003, guid: eb66b231de48a0c429eef271d055c585, type: 3}
 --- !u!1 &5109029058729451978
 GameObject:
   m_ObjectHideFlags: 0

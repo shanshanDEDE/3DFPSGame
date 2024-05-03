@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     [Tooltip("shift加速的倍度")]
     [Range(0, 3)]
     [SerializeField] float sprintSpeedModifier = 2;
-    [Tooltip("對下時的減速倍數")]
+    [Tooltip("蹲下時的減速倍數")]
     [Range(0, 1)]
     [SerializeField] float crouchedSpeedModifier = 0.5f;
     [Tooltip("旋轉速度")]
@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float gravityDownForce = 50;
     [Tooltip("檢查地面的距離")]
     [SerializeField] float distanceToGround = 0.1f;
+
+    public event Action<bool> onAim;
 
     InputController input;
     CharacterController controller;
@@ -75,6 +77,7 @@ public class PlayerController : MonoBehaviour
         }
 
         animator.SetBool("IsAim", isAim);
+        onAim?.Invoke(isAim);
 
     }
 

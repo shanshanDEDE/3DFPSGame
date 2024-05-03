@@ -129,6 +129,23 @@ public class InputController : MonoBehaviour
         return false;
     }
 
+    //取得是否按下切換武器
+    public int GetSwitchWeaponInput()
+    {
+        if (CanProcessInput())
+        {
+            if (Input.GetKey(KeyCode.Q))
+            {
+                return -1;
+            }
+            else if (Input.GetKey(KeyCode.E))
+            {
+                return 1;
+            }
+        }
+        return 0;
+    }
+
 
     private void checkCursorState()
     {
