@@ -815,6 +815,9 @@ GameObject:
   - component: {fileID: 8795563514512231730}
   - component: {fileID: 8795563514505044690}
   - component: {fileID: 1000053234809020178}
+  - component: {fileID: 2078872811}
+  - component: {fileID: 2078872812}
+  - component: {fileID: 2078872816}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -849,7 +852,7 @@ Animator:
   m_GameObject: {fileID: 8795563514512331026}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: e4299bf26a09e9049839e1a1b75e562c, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8718158d764d2b24d848f510363646b6, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -882,6 +885,52 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &2078872811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8795563514512331026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bddaff70252562045b1c1ae8d3d2fc84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 6
+  animatorChangeRatio: 0.2
+--- !u!114 &2078872812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8795563514512331026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f3cbe9371531ba4dbf0784161451358, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseDistance: 10
+  confuseTime: 5
+  patrol: {fileID: 0}
+  wayPointToStay: 1.15
+  wayPointToWaitTime: 3
+  patrolPathSpeedRatio: 0.5
+--- !u!114 &2078872816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8795563514512331026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4918796d9e8334f4091656d411d411e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
 --- !u!1 &8795563514512331028
 GameObject:
   m_ObjectHideFlags: 0

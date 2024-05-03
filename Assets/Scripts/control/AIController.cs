@@ -28,17 +28,30 @@ public class AIController : MonoBehaviour
     GameObject player;
     Mover mover;
     Animator animator;
+    Health health;
 
     private void Awake()
     {
         player = GameObject.FindWithTag("Player");
         mover = GetComponent<Mover>();
         animator = GetComponent<Animator>();
+        health = GetComponent<Health>();
+
         beginPosition = transform.position;
+        health.onDamage += OnDamage;
+        health.onDie += OnDead;
     }
 
     private void Update()
     {
+        if (Input.GetKeyDown("s"))
+        {
+            health.TakeDamage(10f);
+            print("當前血量 :" + health.GetCurrentHealth());
+        }
+
+        if (health.IsDead()) return;
+
         if (IsInRange())
         {
             animator.SetBool("IsConfuse", false);
@@ -106,5 +119,22 @@ public class AIController : MonoBehaviour
     {
         timeSinceLastSawPlayer += Time.deltaTime;
         timeSinceArrivedWayPoint += Time.deltaTime;
+    }
+
+    private void OnDamage()
+    {
+
+    }
+
+    private void OnDead()
+    {
+        mover.CancelMove();
+        animator.SetTrigger("IsDead");
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, chaseDistance);
     }
 }

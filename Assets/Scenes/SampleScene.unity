@@ -34406,43 +34406,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 5e4d11b4d189c9a468a2da06c12cc3db, type: 3}
---- !u!1 &2078872807 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8795563514512331026, guid: 06cde9a01382db543893ea67f70440b9, type: 3}
-  m_PrefabInstance: {fileID: 7448795141692639997}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2078872811
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2078872807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bddaff70252562045b1c1ae8d3d2fc84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxSpeed: 6
-  animatorChangeRatio: 0.2
---- !u!114 &2078872812
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2078872807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f3cbe9371531ba4dbf0784161451358, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chaseDistance: 10
-  confuseTime: 5
-  patrol: {fileID: 1055248209}
-  wayPointToStay: 1.15
-  wayPointToWaitTime: 3
-  patrolPathSpeedRatio: 0.5
 --- !u!1 &2079624428 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3803929167250215305, guid: d8cd41689d07f2c49a95d803bc014810, type: 3}
@@ -35286,10 +35249,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8795563514505044690, guid: 06cde9a01382db543893ea67f70440b9, type: 3}
-      propertyPath: m_Controller
+    - target: {fileID: 2078872812, guid: 06cde9a01382db543893ea67f70440b9, type: 3}
+      propertyPath: patrol
       value: 
-      objectReference: {fileID: 9100000, guid: 8718158d764d2b24d848f510363646b6, type: 2}
+      objectReference: {fileID: 1055248209}
     - target: {fileID: 8795563514512231730, guid: 06cde9a01382db543893ea67f70440b9, type: 3}
       propertyPath: m_RootOrder
       value: 2
