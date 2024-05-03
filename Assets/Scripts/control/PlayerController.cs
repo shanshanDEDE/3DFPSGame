@@ -30,30 +30,52 @@ public class PlayerController : MonoBehaviour
 
     InputController input;
     CharacterController controller;
+    Animator animator;
+    Health health;
 
     Vector3 targetMovement;
     Vector3 jumpDirection;
 
     float lastFramSpeed;
+    //是否在瞄準
+    bool isAim;
 
-    Animator animator;
 
     void Awake()
     {
         input = GameManagerSingleton.Instance.InputController;
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
+        health = GetComponent<Health>();
+
+        health.onDie += OnDie;
     }
 
     void Update()
     {
-        Debug.DrawRay(transform.position, Vector3.down, Color.red);
-
-
+        //瞄準的行為
+        AimBehaviour();
         //移動行為
         MoveBehaviour();
         //跳躍行為
         JumpBehaviour();
+    }
+
+    //瞄準行為
+    private void AimBehaviour()
+    {
+        if (input.GetFireInputDown())
+        {
+            isAim = true;
+        }
+
+        if (input.GetAimInputDown())
+        {
+            isAim = !isAim;
+        }
+
+        animator.SetBool("IsAim", isAim);
+
     }
 
     private void MoveBehaviour()
@@ -72,7 +94,7 @@ public class PlayerController : MonoBehaviour
         {
             nextFrameSpeed = 0;
         }
-        else if (input.GetSprintInput())
+        else if (input.GetSprintInput() && !isAim)
         {
 
             nextFrameSpeed = 1f;
@@ -80,11 +102,16 @@ public class PlayerController : MonoBehaviour
             targetMovement *= sprintSpeedModifier;
             SmoothRotation(targetMovement);
         }
-        else
+        else if (!isAim)
         {
             nextFrameSpeed = 0.5f;
 
             SmoothRotation(targetMovement);
+        }
+
+        if (isAim)
+        {
+            SmoothRotation(GetCurrentCamaraForward());
         }
 
         if (lastFramSpeed != nextFrameSpeed)
@@ -92,6 +119,9 @@ public class PlayerController : MonoBehaviour
             lastFramSpeed = Mathf.Lerp(lastFramSpeed, nextFrameSpeed, addSpeedRatio);
         }
         animator.SetFloat("WalkSpeed", lastFramSpeed);
+        animator.SetFloat("Vertical", input.GetMoveInput().z);
+        animator.SetFloat("Horizontal", input.GetMoveInput().x);
+
         controller.Move(targetMovement * moveSpeed * Time.deltaTime);
     }
 
@@ -135,6 +165,11 @@ public class PlayerController : MonoBehaviour
         camaraForward.y = 0;
         camaraForward.Normalize();
         return camaraForward;
+    }
+
+    private void OnDie()
+    {
+        animator.SetTrigger("IsDead");
     }
 
 }

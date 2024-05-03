@@ -41,7 +41,7 @@ public class AIController : MonoBehaviour
 
         beginPosition = transform.position;
         health.onDamage += OnDamage;
-        health.onDie += OnDead;
+        health.onDie += OnDie;
     }
 
     private void Update()
@@ -134,7 +134,7 @@ public class AIController : MonoBehaviour
 
     }
 
-    private void OnDead()
+    private void OnDie()
     {
         mover.CancelMove();
         animator.SetTrigger("IsDead");

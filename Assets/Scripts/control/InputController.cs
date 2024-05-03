@@ -78,6 +78,58 @@ public class InputController : MonoBehaviour
         return 0;
     }
 
+    //取得是否按下滑鼠的左鍵
+    public bool GetFireInputDown()
+    {
+        if (CanProcessInput())
+        {
+            return Input.GetMouseButtonDown(0);
+        }
+        return false;
+    }
+
+    //取得是否持續按下滑鼠的左鍵
+    public bool GetFireInputHeld()
+    {
+        if (CanProcessInput())
+        {
+            return Input.GetMouseButton(0);
+        }
+        return false;
+    }
+
+    //取得是否放開滑鼠的左鍵
+    public bool GetFireInputUp()
+    {
+        if (CanProcessInput())
+        {
+            return Input.GetMouseButtonUp(0);
+        }
+        return false;
+    }
+
+
+    //取得是否按下滑鼠的右鍵
+    public bool GetAimInputDown()
+    {
+        if (CanProcessInput())
+        {
+            return Input.GetMouseButtonDown(1);
+        }
+        return false;
+    }
+
+    //取得是否按下Reload按鍵
+    public bool GetReloadInputDown()
+    {
+        if (CanProcessInput())
+        {
+            return Input.GetKeyDown(KeyCode.R);
+        }
+        return false;
+    }
+
+
     private void checkCursorState()
     {
         if (Input.GetKeyDown(KeyCode.Escape))

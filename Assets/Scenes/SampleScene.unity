@@ -34561,6 +34561,7 @@ MonoBehaviour:
   attackDamage: 10
   attackRange: 6.88
   timeBetweenAttacks: 2
+  turnSpeed: 5
 --- !u!1 &2079624428 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3803929167250215305, guid: d8cd41689d07f2c49a95d803bc014810, type: 3}
@@ -35404,6 +35405,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5109029058719961608, guid: 2cf859dcf7fed8c48874d1b1b33a5d24, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5109029058728967656, guid: 2cf859dcf7fed8c48874d1b1b33a5d24, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -35465,6 +35470,10 @@ PrefabInstance:
       propertyPath: patrol
       value: 
       objectReference: {fileID: 1055248209}
+    - target: {fileID: 8795563514505044690, guid: 06cde9a01382db543893ea67f70440b9, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8795563514512231730, guid: 06cde9a01382db543893ea67f70440b9, type: 3}
       propertyPath: m_RootOrder
       value: 2
