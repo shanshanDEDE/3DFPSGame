@@ -29,6 +29,7 @@ public class AIController : MonoBehaviour
     Mover mover;
     Animator animator;
     Health health;
+    Fighter fighter;
 
     private void Awake()
     {
@@ -36,6 +37,7 @@ public class AIController : MonoBehaviour
         mover = GetComponent<Mover>();
         animator = GetComponent<Animator>();
         health = GetComponent<Health>();
+        fighter = GetComponent<Fighter>();
 
         beginPosition = transform.position;
         health.onDamage += OnDamage;
@@ -44,7 +46,7 @@ public class AIController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown("s"))
+        if (Input.GetKeyDown(KeyCode.S))
         {
             health.TakeDamage(10f);
             print("當前血量 :" + health.GetCurrentHealth());
@@ -54,9 +56,7 @@ public class AIController : MonoBehaviour
 
         if (IsInRange())
         {
-            animator.SetBool("IsConfuse", false);
-            timeSinceLastSawPlayer = 0;
-            mover.MoveTo(player.transform.position, 1f);
+            AttackBehaviour();
         }
         else if (timeSinceLastSawPlayer < confuseTime)
         {
@@ -68,6 +68,13 @@ public class AIController : MonoBehaviour
         }
 
         UpdateTimer();
+    }
+
+    private void AttackBehaviour()
+    {
+        animator.SetBool("IsConfuse", false);
+        timeSinceLastSawPlayer = 0;
+        fighter.Attack(player.GetComponent<Health>());
     }
 
     //巡邏行為
@@ -107,6 +114,7 @@ public class AIController : MonoBehaviour
     private void ConfuseBeHaviour()
     {
         mover.CancelMove();
+        fighter.cancelTarget();
         animator.SetBool("IsConfuse", true);
     }
 
@@ -134,7 +142,7 @@ public class AIController : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, chaseDistance);
     }
 }

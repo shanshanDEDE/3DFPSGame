@@ -36,6 +36,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Core\HealthBar.cs" />
      <Compile Include="Assets\Scripts\control\InputController.cs" />
      <Compile Include="Assets\Scripts\control\PlayerController.cs" />
      <Compile Include="Assets\Scripts\control\PatrolPath.cs" />
@@ -43,8 +44,9 @@
      <Compile Include="Assets\Scripts\Core\CamaraFollowSmooth.cs" />
      <Compile Include="Assets\Scripts\Core\ThirdPersonCanera.cs" />
      <Compile Include="Assets\Scripts\control\Mover.cs" />
-     <Compile Include="Assets\Scripts\Core\GameManagerSingleton.cs" />
+     <Compile Include="Assets\Scripts\Combat\Fighter.cs" />
      <Compile Include="Assets\Scripts\Core\Health.cs" />
+     <Compile Include="Assets\Scripts\Core\GameManagerSingleton.cs" />
     <Reference Include="UnityEngine">
         <HintPath>D:\unitydownload\2021.3.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
