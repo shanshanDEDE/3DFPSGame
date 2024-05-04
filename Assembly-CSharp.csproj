@@ -49,6 +49,9 @@
      <Compile Include="Assets\Scripts\Core\Health.cs" />
      <Compile Include="Assets\Scripts\Weapon\WeaponManager.cs" />
      <Compile Include="Assets\Scripts\Core\GameManagerSingleton.cs" />
+     <Compile Include="Assets\Scripts\Weapon\Projectile.cs" />
+     <Compile Include="Assets\Scripts\Weapon\MuzzleRotaionToScreenMiddle.cs" />
+     <None Include="Assets\Asset Pack\SimpleFX\Materials\UnlitVertexColour_Alpha.shader" />
     <Reference Include="UnityEngine">
         <HintPath>D:\unitydownload\2021.3.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

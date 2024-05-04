@@ -20,6 +20,8 @@ public class WeaponController : MonoBehaviour
     [Space(5)]
     [Header("射擊形式")]
     [SerializeField] WeaponShootType shootType;
+    [Header("Projectile的Prefab")]
+    [SerializeField] Projectile projectilePrefab;
     [Header("兩次射擊之間的Delay時間")]
     [SerializeField] float delayBetweenShots = 0.5f;
     [Header("射一發所需的子彈數量")]
@@ -72,17 +74,37 @@ public class WeaponController : MonoBehaviour
             case WeaponShootType.single:
                 if (inputDown)
                 {
-                    print("single射擊");
+                    TryShoot();
                 }
                 return;
             case WeaponShootType.Automatic:
                 if (inputHeld)
                 {
-                    print("Auto射擊");
+                    TryShoot();
                 }
                 return;
             default:
                 return;
         }
+    }
+
+    private void TryShoot()
+    {
+        if (currentAmmo >= 1f && timeSinceLastShot + delayBetweenShots < Time.time)
+        {
+            HandleShootInput();
+            currentAmmo -= 1f;
+        }
+    }
+
+    private void HandleShootInput()
+    {
+        for (int i = 0; i < bulletPerShot; i++)
+        {
+            Projectile newProjectile = Instantiate(projectilePrefab, weaponMuzzle.position, Quaternion.LookRotation(weaponMuzzle.forward));
+            newProjectile.Shoot();
+        }
+
+        timeSinceLastShot = Time.time;
     }
 }
