@@ -35,6 +35,9 @@ public class WeaponController : MonoBehaviour
     [Header("最大彈藥數量")]
     [SerializeField] float maxAmmo = 8;
 
+    [Header("槍口發射時產生的特效")]
+    [SerializeField] GameObject muzzleFlashPrefab;
+
     public GameObject sourcePrefab { get; set; }
 
     // 紀錄當前彈藥數量
@@ -103,6 +106,13 @@ public class WeaponController : MonoBehaviour
         {
             Projectile newProjectile = Instantiate(projectilePrefab, weaponMuzzle.position, Quaternion.LookRotation(weaponMuzzle.forward));
             newProjectile.Shoot();
+        }
+
+        if (muzzleFlashPrefab != null)
+        {
+            /*    GameObject newProjectile=Instantiate(muzzleFlashPrefab, weaponMuzzle.position, Quaternion.LookRotation(weaponMuzzle.forward)); */
+            GameObject newProjectile = Instantiate(muzzleFlashPrefab, weaponMuzzle.position, weaponMuzzle.rotation, weaponMuzzle);
+            Destroy(newProjectile, 1.5f);
         }
 
         timeSinceLastShot = Time.time;

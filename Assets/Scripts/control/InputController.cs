@@ -33,7 +33,7 @@ public class InputController : MonoBehaviour
     {
         if (CanProcessInput())
         {
-            return Input.GetKey(KeyCode.LeftShift);
+            return Input.GetKey(KeyCode.Z);
         }
         return false;
     }

@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 989463967368705331}
+  - component: {fileID: 8827996943260296367}
   m_Layer: 0
   m_Name: Muzzle
   m_TagString: Untagged
@@ -31,6 +32,19 @@ Transform:
   m_Father: {fileID: 8818776209507484003}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8827996943260296367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5844946492088991519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23d5560c850344e4bb2942dc4981ce33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDistance: 50000
 --- !u!1 &8818776209507458369
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,7 +142,7 @@ GameObject:
   - component: {fileID: 8818776209507484003}
   - component: {fileID: 1785249788639603986}
   m_Layer: 0
-  m_Name: machinegun
+  m_Name: Machinegun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -172,7 +186,8 @@ MonoBehaviour:
   bulletPerShot: 1
   ammoReloadRate: 1
   ammoReloadDelay: 2
-  maxAmmo: 30
+  maxAmmo: 300
+  muzzleFlashPrefab: {fileID: 5367255001396660698, guid: a664389cd0a0b9846ba894caf137fe59, type: 3}
 --- !u!1 &8818776209507458375
 GameObject:
   m_ObjectHideFlags: 0
