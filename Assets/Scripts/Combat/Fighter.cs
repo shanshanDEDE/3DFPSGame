@@ -18,6 +18,7 @@ public class Fighter : MonoBehaviour
     Animator animator;
     Health health;
     Health targetHealth;
+    AnimatorStateInfo baseLayer;
 
     float timeSinceLastAttack = Mathf.Infinity;
 
@@ -42,12 +43,28 @@ public class Fighter : MonoBehaviour
             mover.CancelMove();
             AttaclBehaviour();
         }
-        else if (timeSinceLastAttack > timeBetweenAttacks)
+        else if (CheckHasAttack() && timeSinceLastAttack > timeBetweenAttacks)
         {
             mover.MoveTo(targetHealth.transform.position, 1f);
         }
 
         UpdateTimer();
+    }
+
+    // 檢查攻擊動作是否已經結束
+    private bool CheckHasAttack()
+    {
+        baseLayer = animator.GetCurrentAnimatorStateInfo(0);
+        // 確認目前動畫是否為攻擊動畫
+        if (baseLayer.fullPathHash == Animator.StringToHash("Base Layer.Attack"))
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+
     }
 
     //GPT大神(解決玩家跳躍敵人物件bug以及瞬間看向玩家的bug)

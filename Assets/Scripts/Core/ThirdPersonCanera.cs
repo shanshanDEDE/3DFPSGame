@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,6 +25,10 @@ public class ThirdPersonCanera : MonoBehaviour
     [SerializeField] float minDistance = 2;
     [Header("最大相機與目標距離")]
     [SerializeField] float maxDistance = 25;
+    [Header("PlaterTarget")]
+    [SerializeField] GameObject player;
+    [Header("受傷時撥放的特效")]
+    [SerializeField] ParticleSystem beHitParticle;
 
     [Header("offset")]
     [SerializeField] Vector3 offset;
@@ -36,6 +41,7 @@ public class ThirdPersonCanera : MonoBehaviour
     private void Awake()
     {
         input = GameManagerSingleton.Instance.InputController;
+        player.GetComponent<Health>().onDamage += OnDamage;
     }
 
     private void LateUpdate()
@@ -53,5 +59,12 @@ public class ThirdPersonCanera : MonoBehaviour
             camaraToTargetDistance += input.GetMouseScrollWheelAxis() * sensitivity_Z;
             camaraToTargetDistance = Mathf.Clamp(camaraToTargetDistance, minDistance, maxDistance);
         }
+    }
+
+    private void OnDamage()
+    {
+        if (beHitParticle == null) return;
+
+        beHitParticle.Play();
     }
 }

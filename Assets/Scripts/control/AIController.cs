@@ -46,12 +46,6 @@ public class AIController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            health.TakeDamage(10f);
-            print("當前血量 :" + health.GetCurrentHealth());
-        }
-
         if (health.IsDead()) return;
 
         if (IsInRange())

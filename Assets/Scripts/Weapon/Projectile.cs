@@ -54,7 +54,6 @@ public class Projectile : MonoBehaviour
         }
         if (other.gameObject.tag == "Enemy" && type == ProjectileType.Collider)
         {
-            Debug.Log(other.gameObject.tag);
             Health targetHealth = other.GetComponent<Health>();
             if (!targetHealth.IsDead())
             {
@@ -64,6 +63,24 @@ public class Projectile : MonoBehaviour
         }
         HitEffect(transform.position);
         Destroy(gameObject);
+    }
+
+    private void OnParticleCollision(GameObject other)
+    {
+        if (other.gameObject.tag == "Weapon" || other.gameObject.tag == "Player")
+        {
+            return;
+        }
+        if (other.gameObject.tag == "Enemy" && type == ProjectileType.Particle)
+        {
+            Health targetHealth = other.GetComponent<Health>();
+            if (!targetHealth.IsDead())
+            {
+                targetHealth.TakeDamage(damage);
+
+            }
+        }
+        HitEffect(transform.position);
     }
 
     private void HitEffect(Vector3 hitPosition)

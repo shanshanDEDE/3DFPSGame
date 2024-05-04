@@ -48,11 +48,6 @@ public class Health : MonoBehaviour
             return;
         }
 
-        if (gameObject.tag == "Player")
-        {
-            print("當前血量 :" + currentHealth);
-        }
-
         currentHealth -= damage;
         currentHealth = Mathf.Max(currentHealth, 0);
 
