@@ -66,6 +66,7 @@ public class PlayerController : MonoBehaviour
     //瞄準行為
     private void AimBehaviour()
     {
+        bool lastTimeAim = isAim;
         if (input.GetFireInputDown())
         {
             isAim = true;
@@ -76,8 +77,12 @@ public class PlayerController : MonoBehaviour
             isAim = !isAim;
         }
 
+        if (lastTimeAim != isAim)
+        {
+            onAim?.Invoke(isAim);
+        }
+
         animator.SetBool("IsAim", isAim);
-        onAim?.Invoke(isAim);
 
     }
 
