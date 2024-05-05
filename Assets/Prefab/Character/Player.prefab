@@ -1723,7 +1723,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingWeapons:
   - {fileID: 1785249788639603986, guid: eb66b231de48a0c429eef271d055c585, type: 3}
-  equipWeaponParent: {fileID: 8818776209507484003, guid: eb66b231de48a0c429eef271d055c585, type: 3}
+  equipWeaponParent: {fileID: 1929083611}
+  aimTime: 2
 --- !u!1 &5109029058729451978
 GameObject:
   m_ObjectHideFlags: 0

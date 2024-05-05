@@ -65,7 +65,7 @@ public class WeaponManager : MonoBehaviour
     }
 
     //切換武器
-    private void SwitchWeapon(int addIndex)
+    public void SwitchWeapon(int addIndex)
     {
         int newWeaponIndex = -1;
         if (activeWeaponIndex + addIndex > weapons.Length - 1)
@@ -166,22 +166,31 @@ public class WeaponManager : MonoBehaviour
         return false;
     }
 
+    bool isAimingCoroutineRunning = false;
+
     private void OnAim(bool value)
     {
         if (value)
         {
-            StopAllCoroutines();
-            StartCoroutine(DelayAim());
+            if (!isAimingCoroutineRunning)
+            {
+                StopAllCoroutines();
+                StartCoroutine(DelayAim());
+            }
         }
         else
         {
+            StopAllCoroutines();
+            isAimingCoroutineRunning = false;
             isAim = value;
         }
     }
 
     IEnumerator DelayAim()
     {
+        isAimingCoroutineRunning = true;
         yield return new WaitForSecondsRealtime(aimTime);
         isAim = true;
+        isAimingCoroutineRunning = false;
     }
 }

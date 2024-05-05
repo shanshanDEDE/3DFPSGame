@@ -74,4 +74,10 @@ public class Health : MonoBehaviour
             onDie?.Invoke();
         }
     }
+
+    public void Heal(float amount)
+    {
+        currentHealth += amount;
+        currentHealth = Mathf.Min(currentHealth, maxHealth);
+    }
 }

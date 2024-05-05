@@ -65,6 +65,7 @@ public class Projectile : MonoBehaviour
         Destroy(gameObject);
     }
 
+
     private void OnParticleCollision(GameObject other)
     {
         if (other.gameObject.tag == "Weapon" || other.gameObject.tag == "Player")
