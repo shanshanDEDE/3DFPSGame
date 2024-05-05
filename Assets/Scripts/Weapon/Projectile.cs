@@ -77,7 +77,6 @@ public class Projectile : MonoBehaviour
             if (!targetHealth.IsDead())
             {
                 targetHealth.TakeDamage(damage);
-
             }
         }
         HitEffect(transform.position);

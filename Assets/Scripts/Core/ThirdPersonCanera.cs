@@ -31,6 +31,8 @@ public class ThirdPersonCanera : MonoBehaviour
     [SerializeField] ParticleSystem beHitParticle;
     [Header("衝刺時撥放的特效")]
     [SerializeField] ParticleSystem springParticle;
+    [Header("暫停UI")]
+    [SerializeField] GameObject pauseUI;
 
     [Header("offset")]
     [SerializeField] Vector3 offset;
@@ -51,6 +53,9 @@ public class ThirdPersonCanera : MonoBehaviour
     {
         if (Cursor.lockState == CursorLockMode.Locked)
         {
+            pauseUI.SetActive(false);
+            Time.timeScale = 1;
+
             mouse_X += input.GetMouseXAxis() * sensitivity_X;
             mouse_Y += input.GetMouseYAxis() * sensitivity_Y;
 
@@ -62,6 +67,20 @@ public class ThirdPersonCanera : MonoBehaviour
             camaraToTargetDistance += input.GetMouseScrollWheelAxis() * sensitivity_Z;
             camaraToTargetDistance = Mathf.Clamp(camaraToTargetDistance, minDistance, maxDistance);
         }
+        else
+        {
+            pauseUI.SetActive(true);
+            Time.timeScale = 0;
+        }
+
+        /*  if (Input.GetKeyDown(KeyCode.O))
+         {
+           //  Time.timeScale += 0.5f;
+         }
+         if (Input.GetKeyDown(KeyCode.P))
+         {
+            // Time.timeScale -= 0.5f;
+         } */
     }
 
     private void OnDamage()
