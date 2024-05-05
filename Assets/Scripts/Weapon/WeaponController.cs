@@ -11,6 +11,8 @@ public enum WeaponShootType
 
 public class WeaponController : MonoBehaviour
 {
+    [Header("Icon")]
+    public Sprite weaponIcon;
 
     [Header("武器的主要GameObject,不使用時將被隱藏")]
     [SerializeField] GameObject weaponRoot;
@@ -39,6 +41,8 @@ public class WeaponController : MonoBehaviour
     [SerializeField] GameObject muzzleFlashPrefab;
 
     public GameObject sourcePrefab { get; set; }
+    public float currentAmmoRatio { get; private set; }
+    public bool isCooling { get; private set; }
 
     // 紀錄當前彈藥數量
     float currentAmmo;
@@ -62,7 +66,28 @@ public class WeaponController : MonoBehaviour
 
     private void UpdateAmmo()
     {
+        if (timeSinceLastShot + ammoReloadDelay < Time.time && currentAmmo < maxAmmo)
+        {
+            // 開始reload
+            currentAmmo += ammoReloadRate * Time.deltaTime;
 
+            currentAmmo = Mathf.Clamp(currentAmmo, 0f, maxAmmo);
+
+            isCooling = true;
+        }
+        else
+        {
+            isCooling = false;
+        }
+
+        if (maxAmmo == Mathf.Infinity)
+        {
+            currentAmmoRatio = 1f;
+        }
+        else
+        {
+            currentAmmoRatio = currentAmmo / maxAmmo;
+        }
     }
 
     public void ShowWeapon(bool value)

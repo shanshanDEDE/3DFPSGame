@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 3169852259180969525}
   m_Layer: 0
   m_Name: MachingGunProjectile
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

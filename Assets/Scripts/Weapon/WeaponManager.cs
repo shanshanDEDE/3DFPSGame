@@ -14,6 +14,8 @@ public class WeaponManager : MonoBehaviour
     [Header("瞄準時間")]
     [SerializeField] float aimTime = 2f;
 
+    public event Action<WeaponController, int> onAddWeapon;
+
     // 目前裝備的武器清單位置
     int activeWeaponIndex;
 
@@ -102,12 +104,12 @@ public class WeaponManager : MonoBehaviour
         }
     }
 
-    private WeaponController GetActiveWeapon()
+    public WeaponController GetActiveWeapon()
     {
         return GetWeaponAtSlotIndex(activeWeaponIndex);
     }
 
-    private WeaponController GetWeaponAtSlotIndex(int index)
+    public WeaponController GetWeaponAtSlotIndex(int index)
     {
         //找到weapon在slot的位置並回傳該武器
         if (index >= 0 && index < weapons.Length - 1 && weapons[index] != null)
@@ -140,6 +142,8 @@ public class WeaponManager : MonoBehaviour
                 weaponInstance.ShowWeapon(false);
 
                 weapons[i] = weaponInstance;
+
+                onAddWeapon?.Invoke(weaponInstance, i);
 
                 return true;
             }

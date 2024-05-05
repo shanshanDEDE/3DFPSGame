@@ -178,15 +178,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc9d9c71c4fee414f97e435bc7efe656, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponIcon: {fileID: 21300000, guid: 96771163f51d1b0479aa802e29eb5911, type: 3}
   weaponRoot: {fileID: 8818776209507458371}
   weaponMuzzle: {fileID: 989463967368705331}
   shootType: 1
   projectilePrefab: {fileID: 5470532170350821674, guid: 0ba89e4ebf3e74c4e943ec70c719ff89, type: 3}
   delayBetweenShots: 0.1
   bulletPerShot: 1
-  ammoReloadRate: 1
-  ammoReloadDelay: 2
-  maxAmmo: 300
+  ammoReloadRate: 10
+  ammoReloadDelay: 1.5
+  maxAmmo: 100
   muzzleFlashPrefab: {fileID: 5367255001396660698, guid: a664389cd0a0b9846ba894caf137fe59, type: 3}
 --- !u!1 &8818776209507458375
 GameObject:

@@ -48,7 +48,7 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Weapon" || other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Weapon" || other.gameObject.tag == "Player" || other.gameObject.tag == "Bullet")
         {
             return;
         }
