@@ -28,6 +28,10 @@ public class PlayerController : MonoBehaviour
     [Tooltip("檢查地面的距離")]
     [SerializeField] float distanceToGround = 0.1f;
 
+    [Space(20)]
+    [Header("準星Icon")]
+    [SerializeField] GameObject crosshair;
+
     public event Action<bool> onAim;
     public event Action onSprint;
 
@@ -80,6 +84,10 @@ public class PlayerController : MonoBehaviour
 
         if (lastTimeAim != isAim)
         {
+            if (crosshair != null)
+            {
+                crosshair.SetActive(isAim);
+            }
             onAim?.Invoke(isAim);
         }
 
