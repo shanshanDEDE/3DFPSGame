@@ -29,6 +29,8 @@ public class ThirdPersonCanera : MonoBehaviour
     [SerializeField] GameObject player;
     [Header("受傷時撥放的特效")]
     [SerializeField] ParticleSystem beHitParticle;
+    [Header("衝刺時撥放的特效")]
+    [SerializeField] ParticleSystem springParticle;
 
     [Header("offset")]
     [SerializeField] Vector3 offset;
@@ -42,6 +44,7 @@ public class ThirdPersonCanera : MonoBehaviour
     {
         input = GameManagerSingleton.Instance.InputController;
         player.GetComponent<Health>().onDamage += OnDamage;
+        player.GetComponent<PlayerController>().onSprint += OnSprint;
     }
 
     private void LateUpdate()
@@ -66,5 +69,12 @@ public class ThirdPersonCanera : MonoBehaviour
         if (beHitParticle == null) return;
 
         beHitParticle.Play();
+    }
+
+    private void OnSprint()
+    {
+        if (springParticle == null) return;
+
+        springParticle.Play();
     }
 }

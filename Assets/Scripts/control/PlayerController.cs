@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float distanceToGround = 0.1f;
 
     public event Action<bool> onAim;
+    public event Action onSprint;
 
     InputController input;
     CharacterController controller;
@@ -109,6 +110,7 @@ public class PlayerController : MonoBehaviour
 
             targetMovement *= sprintSpeedModifier;
             SmoothRotation(targetMovement);
+            onSprint?.Invoke();
         }
         else if (!isAim)
         {
