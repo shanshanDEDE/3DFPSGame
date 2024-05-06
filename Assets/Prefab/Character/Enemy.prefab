@@ -963,9 +963,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b64a882586af5b74cadc560aa9f4decc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actorType: 1
+  actorType: 0
   attackDamage: 10
-  attackRange: 14
+  attackRange: 5
   timeBetweenAttacks: 2
   turnSpeed: 5
   throwProjectile: {fileID: 1590297363934052946, guid: ae580d10a51cda54b9161be31058d51a, type: 3}

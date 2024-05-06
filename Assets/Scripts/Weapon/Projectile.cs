@@ -79,6 +79,10 @@ public class Projectile : MonoBehaviour
         {
             return;
         }
+        if (other.tag == owner.tag || !canAttack)
+        {
+            return;
+        }
         if (other.gameObject.tag == "Weapon")
         {
             return;
