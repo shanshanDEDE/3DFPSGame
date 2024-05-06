@@ -190,6 +190,8 @@ MonoBehaviour:
   ammoReloadDelay: 1.5
   maxAmmo: 100
   muzzleFlashPrefab: {fileID: 5367255001396660698, guid: a664389cd0a0b9846ba894caf137fe59, type: 3}
+  shootSFX: {fileID: 8300000, guid: 9afd6cc7134a3428cb7606e918101f8f, type: 3}
+  changeWeaponSFX: {fileID: 0}
 --- !u!1 &8818776209507458375
 GameObject:
   m_ObjectHideFlags: 0

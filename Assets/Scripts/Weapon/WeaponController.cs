@@ -40,10 +40,16 @@ public class WeaponController : MonoBehaviour
     [Space(5)]
     [Header("槍口發射時產生的特效")]
     [SerializeField] GameObject muzzleFlashPrefab;
+    [Header("Shoot的音效")]
+    [SerializeField] AudioClip shootSFX;
+    [Header("切換到這個武器時的音效")]
+    [SerializeField] AudioClip changeWeaponSFX;
 
     public GameObject sourcePrefab { get; set; }
     public float currentAmmoRatio { get; private set; }
     public bool isCooling { get; private set; }
+
+    AudioSource audioSource;
 
     // 紀錄當前彈藥數量
     float currentAmmo;
@@ -58,6 +64,7 @@ public class WeaponController : MonoBehaviour
     void Start()
     {
         currentAmmo = maxAmmo;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -95,6 +102,11 @@ public class WeaponController : MonoBehaviour
     public void ShowWeapon(bool value)
     {
         weaponRoot.SetActive(value);
+
+        if (value && changeWeaponSFX)
+        {
+            audioSource.PlayOneShot(changeWeaponSFX);
+        }
     }
 
     public void HandleShootInput(bool inputDown, bool inputHeld, bool inputUp)
@@ -141,6 +153,13 @@ public class WeaponController : MonoBehaviour
             GameObject newProjectile = Instantiate(muzzleFlashPrefab, weaponMuzzle.position, weaponMuzzle.rotation, weaponMuzzle);
             Destroy(newProjectile, 1.5f);
         }
+
+        if (shootSFX != null)
+        {
+            audioSource.PlayOneShot(shootSFX);
+        }
+
+
 
         timeSinceLastShot = Time.time;
     }
