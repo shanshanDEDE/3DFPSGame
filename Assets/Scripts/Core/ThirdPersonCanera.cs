@@ -37,20 +37,30 @@ public class ThirdPersonCanera : MonoBehaviour
     [Header("offset")]
     [SerializeField] Vector3 offset;
 
+    [Header("Pause的音效")]
+    [SerializeField] AudioClip pauseSFX;
+
+
     InputController input;
+    AudioSource audioSource;
 
     float mouse_X = 0;
     float mouse_Y = 30;
+
+    bool isChange;
 
     private void Awake()
     {
         input = GameManagerSingleton.Instance.InputController;
         player.GetComponent<Health>().onDamage += OnDamage;
         player.GetComponent<PlayerController>().onSprint += OnSprint;
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void LateUpdate()
     {
+        bool isLocked = false;
         if (Cursor.lockState == CursorLockMode.Locked)
         {
             pauseUI.SetActive(false);
@@ -66,11 +76,20 @@ public class ThirdPersonCanera : MonoBehaviour
 
             camaraToTargetDistance += input.GetMouseScrollWheelAxis() * sensitivity_Z;
             camaraToTargetDistance = Mathf.Clamp(camaraToTargetDistance, minDistance, maxDistance);
+
+            isLocked = false;
         }
         else
         {
             pauseUI.SetActive(true);
             Time.timeScale = 0;
+            isLocked = true;
+        }
+
+        if (isLocked != isChange)
+        {
+            audioSource.PlayOneShot(pauseSFX);
+            isChange = isLocked;
         }
 
         /*  if (Input.GetKeyDown(KeyCode.O))

@@ -59,12 +59,15 @@ public class WeaponController : MonoBehaviour
     bool isAim;
 
 
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         currentAmmo = maxAmmo;
-        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame

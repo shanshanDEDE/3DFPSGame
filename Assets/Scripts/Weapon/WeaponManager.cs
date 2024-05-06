@@ -157,7 +157,7 @@ public class WeaponManager : MonoBehaviour
     {
         foreach (WeaponController weapon in weapons)
         {
-            if (weapon != null && weapon.sourcePrefab == weaponPrefab)
+            if (weapon != null && weapon.sourcePrefab == weaponPrefab.gameObject)
             {
                 return true;
             }
