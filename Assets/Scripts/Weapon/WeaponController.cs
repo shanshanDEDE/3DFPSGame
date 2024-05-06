@@ -37,6 +37,7 @@ public class WeaponController : MonoBehaviour
     [Header("最大彈藥數量")]
     [SerializeField] float maxAmmo = 8;
 
+    [Space(5)]
     [Header("槍口發射時產生的特效")]
     [SerializeField] GameObject muzzleFlashPrefab;
 
