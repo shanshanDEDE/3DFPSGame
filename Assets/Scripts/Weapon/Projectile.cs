@@ -31,6 +31,9 @@ public class Projectile : MonoBehaviour
     //當前速度
     Vector3 currentVelocity;
 
+    GameObject owner;
+    bool canAttack;
+
     private void OnEnable()
     {
         Destroy(gameObject, maxLifeTime);
@@ -48,11 +51,15 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Weapon" || other.gameObject.tag == "Player" || other.gameObject.tag == "Bullet")
+        if (other.gameObject == owner || !canAttack)
         {
             return;
         }
-        if (other.gameObject.tag == "Enemy" && type == ProjectileType.Collider)
+        if (other.gameObject.tag == "Weapon" || other.gameObject.tag == "Bullet")
+        {
+            return;
+        }
+        if ((other.gameObject.tag == "Enemy" || other.gameObject.tag == "Player") && type == ProjectileType.Collider)
         {
             Health targetHealth = other.GetComponent<Health>();
             if (!targetHealth.IsDead())
@@ -68,11 +75,15 @@ public class Projectile : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        if (other.gameObject.tag == "Weapon" || other.gameObject.tag == "Player")
+        if (other == owner || !canAttack)
         {
             return;
         }
-        if (other.gameObject.tag == "Enemy" && type == ProjectileType.Particle)
+        if (other.gameObject.tag == "Weapon")
+        {
+            return;
+        }
+        if ((other.gameObject.tag == "Enemy" || other.gameObject.tag == "Player") && type == ProjectileType.Particle)
         {
             Health targetHealth = other.GetComponent<Health>();
             if (!targetHealth.IsDead())
@@ -95,8 +106,10 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    public void Shoot()
+    public void Shoot(GameObject gameObject)
     {
+        owner = gameObject;
         currentVelocity = transform.forward * prjectileSpeed;
+        canAttack = true;
     }
 }

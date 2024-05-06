@@ -1695,6 +1695,7 @@ MonoBehaviour:
   jumpForce: 15
   gravityDownForce: 50
   distanceToGround: 0.1
+  crosshair: {fileID: 0}
 --- !u!114 &2033701917
 MonoBehaviour:
   m_ObjectHideFlags: 0

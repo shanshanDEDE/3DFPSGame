@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxDistance: 50000
+  offset_Y: 20
 --- !u!1 &8818776209507458369
 GameObject:
   m_ObjectHideFlags: 0

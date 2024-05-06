@@ -37,8 +37,12 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Weapon\WeaponController.cs" />
+     <Compile Include="Assets\Asset Pack\Particlecollection_Free samples\Plugins\Effect\Script\RenderEffect.cs" />
+     <Compile Include="Assets\Asset Pack\Particlecollection_Free samples\Plugins\Effect\Script\TransformExtension.cs" />
      <Compile Include="Assets\Scripts\Weapon\Projectile.cs" />
      <Compile Include="Assets\Scripts\Core\HealthBar.cs" />
+     <Compile Include="Assets\Asset Pack\Particlecollection_Free samples\Plugins\Effect\Script\EffectShaderPropertyStr.cs" />
+     <Compile Include="Assets\Scripts\Pickup\PickHealth.cs" />
      <Compile Include="Assets\Scripts\control\InputController.cs" />
      <Compile Include="Assets\Scripts\control\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Weapon\MuzzleRotaionToScreenMiddle.cs" />
@@ -46,22 +50,18 @@
      <Compile Include="Assets\Scripts\control\AIController.cs" />
      <Compile Include="Assets\Scripts\Pickup\Pickup.cs" />
      <Compile Include="Assets\Scripts\Core\CamaraFollowSmooth.cs" />
+     <Compile Include="Assets\Asset Pack\Particlecollection_Free samples\Plugins\Effect\Script\CameraTarget.cs" />
+     <Compile Include="Assets\Asset Pack\Particlecollection_Free samples\Plugins\Effect\Script\EffectController.cs" />
      <Compile Include="Assets\Scripts\UI\PlayerHealthUI.cs" />
      <Compile Include="Assets\Scripts\Core\ThirdPersonCanera.cs" />
      <Compile Include="Assets\Scripts\control\Mover.cs" />
+     <Compile Include="Assets\Asset Pack\Particlecollection_Free samples\Plugins\Effect\Script\EffectDemo.cs" />
      <Compile Include="Assets\Scripts\Pickup\PickupWeapon.cs" />
      <Compile Include="Assets\Scripts\Combat\Fighter.cs" />
      <Compile Include="Assets\Scripts\Core\Health.cs" />
      <Compile Include="Assets\Scripts\UI\WeaponUI.cs" />
      <Compile Include="Assets\Scripts\Weapon\WeaponManager.cs" />
      <Compile Include="Assets\Scripts\Core\GameManagerSingleton.cs" />
-     <Compile Include="Assets\Asset Pack\Particlecollection_Free samples\Plugins\Effect\Script\CameraTarget.cs" />
-     <Compile Include="Assets\Asset Pack\Particlecollection_Free samples\Plugins\Effect\Script\EffectShaderPropertyStr.cs" />
-     <Compile Include="Assets\Asset Pack\Particlecollection_Free samples\Plugins\Effect\Script\RenderEffect.cs" />
-     <Compile Include="Assets\Asset Pack\Particlecollection_Free samples\Plugins\Effect\Script\EffectController.cs" />
-     <Compile Include="Assets\Asset Pack\Particlecollection_Free samples\Plugins\Effect\Script\TransformExtension.cs" />
-     <Compile Include="Assets\Asset Pack\Particlecollection_Free samples\Plugins\Effect\Script\EffectDemo.cs" />
-     <Compile Include="Assets\Scripts\Pickup\PickHealth.cs" />
      <None Include="Assets\Asset Pack\Particlecollection_Free samples\Plugins\Effect\Shader\Toon Blended Premmultiply.shader" />
      <None Include="Assets\Asset Pack\Particlecollection_Free samples\READ ME.txt" />
      <None Include="Assets\Asset Pack\Particlecollection_Free samples\Plugins\Effect\Shader\ParticleBlendEffect.shader" />

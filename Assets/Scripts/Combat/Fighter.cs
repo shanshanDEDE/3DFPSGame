@@ -1,10 +1,23 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
+
+public enum Actor
+{
+    //近戰
+    Melee,
+    //遠程
+    Acher,
+    Zombie,
+}
 
 public class Fighter : MonoBehaviour
 {
+    [Header("角色攻擊類型")]
+    [SerializeField] Actor actorType;
+
     [Header("攻擊力")]
     [SerializeField] float attackDamage = 10f;
     [Header("攻擊範圍")]
@@ -13,6 +26,13 @@ public class Fighter : MonoBehaviour
     [SerializeField] float timeBetweenAttacks = 2f;
     [Header("轉向速度")]
     [SerializeField] float turnSpeed = 5f;  // 新增轉向速度參數
+
+    [Space(20)]
+    [Header("要丟出去的Projectile")]
+    [SerializeField] Projectile throwProjectile;
+    [Header("手部座標")]
+    [SerializeField] Transform hand;
+
 
     Mover mover;
     Animator animator;
@@ -97,13 +117,24 @@ public class Fighter : MonoBehaviour
 
     private void Hit()
     {
-        if (targetHealth == null) return;
+        if (targetHealth == null || actorType != Actor.Melee) return;
 
         if (IsInAttackRange())
         {
             targetHealth.TakeDamage(attackDamage);
         }
 
+    }
+
+    private void Shoot()
+    {
+        if (actorType != Actor.Acher) return;
+
+        if (throwProjectile != null)
+        {
+            Projectile newProjectile = Instantiate(throwProjectile, hand.position, Quaternion.LookRotation(transform.forward));
+            newProjectile.Shoot(gameObject);
+        }
     }
 
     private bool IsInAttackRange()
