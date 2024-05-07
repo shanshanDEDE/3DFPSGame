@@ -11,6 +11,7 @@ public enum Actor
     //遠程
     Acher,
     Zombie,
+    Boss,
 }
 
 public class Fighter : MonoBehaviour

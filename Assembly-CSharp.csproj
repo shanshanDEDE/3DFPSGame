@@ -39,6 +39,7 @@
      <Compile Include="Assets\Scripts\Weapon\WeaponController.cs" />
      <Compile Include="Assets\Asset Pack\Particlecollection_Free samples\Plugins\Effect\Script\RenderEffect.cs" />
      <Compile Include="Assets\Asset Pack\Particlecollection_Free samples\Plugins\Effect\Script\TransformExtension.cs" />
+     <Compile Include="Assets\Scripts\Boss\RootFighter.cs" />
      <Compile Include="Assets\Scripts\Weapon\Projectile.cs" />
      <Compile Include="Assets\Scripts\Core\HealthBar.cs" />
      <Compile Include="Assets\Asset Pack\Particlecollection_Free samples\Plugins\Effect\Script\EffectShaderPropertyStr.cs" />
@@ -47,6 +48,7 @@
      <Compile Include="Assets\Scripts\control\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Weapon\MuzzleRotaionToScreenMiddle.cs" />
      <Compile Include="Assets\Scripts\control\PatrolPath.cs" />
+     <Compile Include="Assets\Scripts\Boss\RootAIController.cs" />
      <Compile Include="Assets\Scripts\control\AIController.cs" />
      <Compile Include="Assets\Scripts\Pickup\Pickup.cs" />
      <Compile Include="Assets\Scripts\Core\CamaraFollowSmooth.cs" />
@@ -56,6 +58,7 @@
      <Compile Include="Assets\Scripts\Core\ThirdPersonCanera.cs" />
      <Compile Include="Assets\Scripts\control\Mover.cs" />
      <Compile Include="Assets\Asset Pack\Particlecollection_Free samples\Plugins\Effect\Script\EffectDemo.cs" />
+     <Compile Include="Assets\Scripts\Boss\RootMover.cs" />
      <Compile Include="Assets\Scripts\Pickup\PickupWeapon.cs" />
      <Compile Include="Assets\Scripts\Combat\Fighter.cs" />
      <Compile Include="Assets\Scripts\Core\Health.cs" />
@@ -768,13 +771,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Boxophobic.Utils.Scripts.csproj">
-      <Project>{a9f5bfa5-b26e-4c5d-05fd-b113f60cf6a3}</Project>
-      <Name>Boxophobic.Utils.Scripts</Name>
-    </ProjectReference>
     <ProjectReference Include="Boxophobic.SkyboxCubemapExtended.Editor.csproj">
       <Project>{84228691-5d5c-31d1-a596-c222bc14984d}</Project>
       <Name>Boxophobic.SkyboxCubemapExtended.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Boxophobic.Utils.Scripts.csproj">
+      <Project>{a9f5bfa5-b26e-4c5d-05fd-b113f60cf6a3}</Project>
+      <Name>Boxophobic.Utils.Scripts</Name>
     </ProjectReference>
     <ProjectReference Include="Boxophobic.Utils.Editor.csproj">
       <Project>{5c8fb57f-79cb-739a-a162-dbefd6212675}</Project>

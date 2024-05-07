@@ -24,6 +24,7 @@ public class AIController : MonoBehaviour
     private Vector3 beginPosition;
     int currentWayPointIndex = 0;
     float timeSinceArrivedWayPoint = 0f;
+    bool isBeHit;
 
     GameObject player;
     Mover mover;
@@ -48,7 +49,7 @@ public class AIController : MonoBehaviour
     {
         if (health.IsDead()) return;
 
-        if (IsInRange())
+        if (IsInRange() || isBeHit)
         {
             AttackBehaviour();
         }
@@ -125,7 +126,7 @@ public class AIController : MonoBehaviour
 
     private void OnDamage()
     {
-
+        isBeHit = true;
     }
 
     private void OnDie()

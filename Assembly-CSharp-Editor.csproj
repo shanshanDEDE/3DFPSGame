@@ -785,13 +785,13 @@
       <Project>{d4900c22-0906-5c32-1249-34b84fbbd5c8}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
-    <ProjectReference Include="Boxophobic.Utils.Scripts.csproj">
-      <Project>{a9f5bfa5-b26e-4c5d-05fd-b113f60cf6a3}</Project>
-      <Name>Boxophobic.Utils.Scripts</Name>
-    </ProjectReference>
     <ProjectReference Include="Boxophobic.SkyboxCubemapExtended.Editor.csproj">
       <Project>{84228691-5d5c-31d1-a596-c222bc14984d}</Project>
       <Name>Boxophobic.SkyboxCubemapExtended.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Boxophobic.Utils.Scripts.csproj">
+      <Project>{a9f5bfa5-b26e-4c5d-05fd-b113f60cf6a3}</Project>
+      <Name>Boxophobic.Utils.Scripts</Name>
     </ProjectReference>
     <ProjectReference Include="Boxophobic.Utils.Editor.csproj">
       <Project>{5c8fb57f-79cb-739a-a162-dbefd6212675}</Project>
