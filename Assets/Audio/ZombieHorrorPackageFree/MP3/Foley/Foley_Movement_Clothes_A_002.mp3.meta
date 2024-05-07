@@ -1,22 +1,3 @@
-fileFormatVersion: 2
-guid: 160d93b1171fa4c23a221845c9cf9499
-timeCreated: 1532911552
-licenseType: Store
-AudioImporter:
-  serializedVersion: 6
-  defaultSettings:
-    loadType: 0
-    sampleRateSetting: 0
-    sampleRateOverride: 44100
-    compressionFormat: 1
-    quality: 1
-    conversionMode: 0
-  platformSettingOverrides: {}
-  forceToMono: 0
-  normalize: 1
-  preloadAudioData: 1
-  loadInBackground: 0
-  3D: 1
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+version https://git-lfs.github.com/spec/v1
+oid sha256:6fe22b54c54ec3dbb598e820964e80e4229ec8c21b6dca25063b9593f93b80d4
+size 464
