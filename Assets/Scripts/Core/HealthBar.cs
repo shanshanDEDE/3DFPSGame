@@ -1,26 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-
-public class HealthBar : MonoBehaviour
-{
-    [SerializeField] private Health health;
-    [SerializeField] private GameObject rootCanvas;
-    [SerializeField] private Image foreground;
-    [Range(0f, 1f)]
-    [SerializeField] float changeHealthRatio = 0.05f;
-
-    void Update()
-    {
-        if (Mathf.Approximately(health.GetHealthRatio(), 0) || Mathf.Approximately(health.GetHealthRatio(), 1))
-        {
-            rootCanvas.SetActive(false);
-            return;
-        }
-
-        rootCanvas.SetActive(true);
-        rootCanvas.transform.LookAt(Camera.main.transform.position);
-        foreground.fillAmount = Mathf.Lerp(foreground.fillAmount, health.GetHealthRatio(), changeHealthRatio);
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:8ab6eb45740cc273c971318287b80d7cc3d964683f3e393d164448f31f75fb00
+size 1279
