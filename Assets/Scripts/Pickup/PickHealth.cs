@@ -1,32 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class PickHealth : MonoBehaviour
-{
-    [Header("需要恢復的血量")]
-    [SerializeField] float healthAmount;
-
-    [Header("要銷毀的gameobjec根節點")]
-    [SerializeField] GameObject pickupRoot;
-
-    Pickup pickup;
-
-    void Start()
-    {
-        pickup = GetComponent<Pickup>();
-        pickup.onPick += OnPick;
-    }
-
-    private void OnPick(GameObject player)
-    {
-        Health health = player.GetComponent<Health>();
-        if (health)
-        {
-            health.Heal(healthAmount);
-            Destroy(pickupRoot);
-        }
-    }
-
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:1a1d0dbbeb3976793bd851e602a76347852e81f53e9e85d5c05f4be4e527381b
+size 943
